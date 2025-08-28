@@ -1,0 +1,1 @@
+{"version":3,"file":"TokenType.d.ts","sourceRoot":"","sources":["../../src/types/TokenType.ts"],"names":[],"mappings":"AAAA,0BAAkB,UAAU;IAC1B,MAAM,WAAW;IACjB,OAAO,YAAY;CACpB;AAED,MAAM,MAAM,SAAS,GAAG,UAAU,CAAC,MAAM,GAAG,UAAU,CAAC,OAAO,CAAC;AAC/D,MAAM,MAAM,SAAS,GAAG;IAAE,WAAW,EAAE,MAAM,CAAC;IAAC,YAAY,EAAE,MAAM,CAAA;CAAE,CAAC"}

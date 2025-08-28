@@ -1,0 +1,1 @@
+{"version":3,"file":"InvalidTokenTypeError.d.ts","sourceRoot":"","sources":["../../../src/types/errors/InvalidTokenTypeError.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,iBAAiB,CAAC;AAEjD,qBAAa,qBAAsB,SAAQ,KAAK;gBAClC,KAAK,EAAE,MAAM,EAAE,YAAY,EAAE,GAAG,EAAE,YAAY,EAAE,SAAS;CAKtE"}
