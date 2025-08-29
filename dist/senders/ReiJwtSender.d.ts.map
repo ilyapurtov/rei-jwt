@@ -1,0 +1,1 @@
+{"version":3,"file":"ReiJwtSender.d.ts","sourceRoot":"","sources":["../../src/senders/ReiJwtSender.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,kBAAkB,EAAE,iBAAiB,EAAE,MAAM,sBAAsB,CAAC;AAC7E,OAAO,EACL,mBAAmB,EACnB,oBAAoB,EACrB,MAAM,wBAAwB,CAAC;AAEhC;;;GAGG;AACH,qBAAa,YAAY;IACvB,MAAM,CAAC,MAAM,CAAC,OAAO,CAAC,EAAE,iBAAiB;IAIzC,MAAM,CAAC,QAAQ,CAAC,OAAO,CAAC,EAAE,mBAAmB;CAG9C"}

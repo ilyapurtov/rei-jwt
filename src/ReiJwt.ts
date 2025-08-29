@@ -78,7 +78,7 @@ export class ReiJwt<PayloadType = any> extends HasLogger {
         );
 
         // 3. signing and sending new token pair
-        const pair = this.signAndSend(payload, res);
+        this.signAndSend(payload, res);
       } catch (e) {
         res.statusCode = this.options.errorStatusCode!;
         res.end("Unathorized");
@@ -98,7 +98,7 @@ export class ReiJwt<PayloadType = any> extends HasLogger {
     this.debug(`New token pair was signed: ${this.json(pair)}`);
 
     // sending tokens
-    this.options.extractor.send(res, pair);
+    this.options.sender.send(res, pair);
 
     this.debug(`New token pair was sent: ${this.json(pair)}`);
 
@@ -109,7 +109,7 @@ export class ReiJwt<PayloadType = any> extends HasLogger {
   /**
    * method for signing access and refresh tokens
    */
-  private sign(payload: PayloadType): TokenPair {
+  sign(payload: PayloadType): TokenPair {
     const accessToken = jwt.sign(
       { ...payload, type: TokenTypes.access },
       this.options.secret,
@@ -127,7 +127,7 @@ export class ReiJwt<PayloadType = any> extends HasLogger {
   /**
    * method for verifying token
    */
-  private verify(token: string, tokenType: TokenType): PayloadType {
+  protected verify(token: string, tokenType: TokenType): PayloadType {
     const payload = jwt.verify(
       token,
       this.options.secret,
@@ -147,14 +147,22 @@ export class ReiJwt<PayloadType = any> extends HasLogger {
    * available after authorization middleware
    */
   getPayload(req: IncomingMessage): PayloadType {
+    const payload = ReiJwt.getPayload<PayloadType>(req);
+    this.debug(`Payload was recieved: ${this.json(payload)}`);
+
+    return payload;
+  }
+
+  /**
+   * static version of getPayload method for convenience
+   */
+  static getPayload<PayloadType = any>(req: IncomingMessage): PayloadType {
     const header = req.headers[JWT_PAYLOAD_HEADER];
     if (typeof header !== "string") {
       throw new InvalidDataError("header " + JWT_PAYLOAD_HEADER);
     }
 
     const payload = JSON.parse(header) as PayloadType;
-
-    this.debug(`Payload was recieved: ${this.json(payload)}`);
 
     return payload;
   }

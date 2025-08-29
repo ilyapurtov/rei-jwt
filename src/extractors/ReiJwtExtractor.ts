@@ -1,11 +1,8 @@
 import { ReiJwtExtractorFromAuthHeader } from "@/extractors/ReiJwtExtractorFromAuthHeader.js";
-import {
-  ReiJwtExtractorFromCookie,
-  type CookieExtractorOptions,
-} from "@/extractors/ReiJwtExtractorFromCookie.js";
+import { ReiJwtExtractorFromCookie } from "@/extractors/ReiJwtExtractorFromCookie.js";
 
 /**
- * Factory class for creating
+ * Factory class to create
  * different extractors
  */
 export class ReiJwtExtractor {
@@ -13,7 +10,7 @@ export class ReiJwtExtractor {
     return new ReiJwtExtractorFromAuthHeader();
   }
 
-  static fromCookie(options: CookieExtractorOptions) {
-    return new ReiJwtExtractorFromCookie(options);
+  static fromCookie() {
+    return new ReiJwtExtractorFromCookie();
   }
 }

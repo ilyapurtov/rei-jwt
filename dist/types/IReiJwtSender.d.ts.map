@@ -1,0 +1,1 @@
+{"version":3,"file":"IReiJwtSender.d.ts","sourceRoot":"","sources":["../../src/types/IReiJwtSender.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,MAAM,CAAC;AACtC,OAAO,EAAE,SAAS,EAAE,MAAM,aAAa,CAAC;AAExC;;;GAGG;AACH,MAAM,WAAW,aAAa;IAC5B,IAAI,CAAC,GAAG,EAAE,cAAc,EAAE,SAAS,EAAE,SAAS,GAAG,IAAI,CAAC;CACvD"}

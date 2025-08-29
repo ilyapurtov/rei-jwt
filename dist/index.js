@@ -1,2 +1,3 @@
-export { ReiJwtExtractor } from "./ReiJwtExtractor.js";
+export { ReiJwtExtractor } from "./extractors/ReiJwtExtractor.js";
+export { ReiJwtSender } from "./senders/ReiJwtSender.js";
 export { ReiJwt } from "./ReiJwt.js";

@@ -55,7 +55,7 @@ export class ReiJwt extends HasLogger {
                 const payload = this.verify(token, TokenTypes.refresh);
                 this.debug(`Refresh token ${token} successfully verifed. Payload: ${this.json(payload)}`);
                 // 3. signing and sending new token pair
-                const pair = this.signAndSend(payload, res);
+                this.signAndSend(payload, res);
             }
             catch (e) {
                 res.statusCode = this.options.errorStatusCode;
@@ -73,7 +73,7 @@ export class ReiJwt extends HasLogger {
         const pair = this.sign(payload);
         this.debug(`New token pair was signed: ${this.json(pair)}`);
         // sending tokens
-        this.options.extractor.send(res, pair);
+        this.options.sender.send(res, pair);
         this.debug(`New token pair was sent: ${this.json(pair)}`);
         // returning token pair
         return pair;
@@ -102,12 +102,19 @@ export class ReiJwt extends HasLogger {
      * available after authorization middleware
      */
     getPayload(req) {
+        const payload = ReiJwt.getPayload(req);
+        this.debug(`Payload was recieved: ${this.json(payload)}`);
+        return payload;
+    }
+    /**
+     * static version of getPayload method for convenience
+     */
+    static getPayload(req) {
         const header = req.headers[JWT_PAYLOAD_HEADER];
         if (typeof header !== "string") {
             throw new InvalidDataError("header " + JWT_PAYLOAD_HEADER);
         }
         const payload = JSON.parse(header);
-        this.debug(`Payload was recieved: ${this.json(payload)}`);
         return payload;
     }
 }

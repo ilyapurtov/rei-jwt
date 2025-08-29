@@ -1,7 +1,6 @@
-import type { IncomingMessage, ServerResponse } from "http";
-import type { IReiJwtExtractor } from "../types/IReiJwtExtractor.js";
-import { ExtractionError } from "../types/errors/ExtractionError.js";
-import { TokenPair } from "@/types/TokenType.js";
+import type { IncomingMessage } from "http";
+import type { IReiJwtExtractor } from "@/types/IReiJwtExtractor.js";
+import { ExtractionError } from "@/types/errors/ExtractionError.js";
 
 export class ReiJwtExtractorFromAuthHeader implements IReiJwtExtractor {
   /**
@@ -16,11 +15,5 @@ export class ReiJwtExtractorFromAuthHeader implements IReiJwtExtractor {
     } else {
       return parts[1];
     }
-  }
-
-  send(res: ServerResponse, pair: TokenPair) {
-    res.setHeader("Content-Type", "application/json");
-    res.statusCode = 200;
-    res.end(JSON.stringify(pair));
   }
 }

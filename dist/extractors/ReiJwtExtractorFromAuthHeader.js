@@ -13,9 +13,4 @@ export class ReiJwtExtractorFromAuthHeader {
             return parts[1];
         }
     }
-    send(res, pair) {
-        res.setHeader("Content-Type", "application/json");
-        res.statusCode = 200;
-        res.end(JSON.stringify(pair));
-    }
 }

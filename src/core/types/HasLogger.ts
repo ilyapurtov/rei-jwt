@@ -37,7 +37,7 @@ export abstract class HasLogger {
     return [new Date(), FgRed + this.prefix + Reset, ...messages];
   }
 
-  json(value: any): string {
+  protected json(value: any): string {
     try {
       return JSON.stringify(value, null, 2);
     } catch (e) {
@@ -45,19 +45,19 @@ export abstract class HasLogger {
     }
   }
 
-  debug(...messages: any) {
+  protected debug(...messages: any) {
     if (this.isDebugMode) {
       this.logger.log(...this.format(...messages));
     }
   }
 
-  warn(...messages: any) {
+  protected warn(...messages: any) {
     if (this.isDebugMode) {
       this.logger.warn(...this.format(...messages));
     }
   }
 
-  error(...messages: any) {
+  protected error(...messages: any) {
     if (this.isDebugMode) {
       this.logger.error(...this.format(...messages));
     }

@@ -1,6 +1,6 @@
 import { type IncomingMessage, type ServerResponse } from "http";
 import type { IReiJwtOptions } from "./types/IReiJwtOptions.js";
-import { TokenPair } from "./types/TokenType.js";
+import { TokenPair, type TokenType } from "./types/TokenType.js";
 import { HasLogger } from "./core/types/HasLogger.js";
 export declare class ReiJwt<PayloadType = any> extends HasLogger {
     options: IReiJwtOptions;
@@ -22,15 +22,19 @@ export declare class ReiJwt<PayloadType = any> extends HasLogger {
     /**
      * method for signing access and refresh tokens
      */
-    private sign;
+    sign(payload: PayloadType): TokenPair;
     /**
      * method for verifying token
      */
-    private verify;
+    protected verify(token: string, tokenType: TokenType): PayloadType;
     /**
      * method for getting payload
      * available after authorization middleware
      */
     getPayload(req: IncomingMessage): PayloadType;
+    /**
+     * static version of getPayload method for convenience
+     */
+    static getPayload<PayloadType = any>(req: IncomingMessage): PayloadType;
 }
 //# sourceMappingURL=ReiJwt.d.ts.map

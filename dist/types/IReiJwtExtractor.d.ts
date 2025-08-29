@@ -1,7 +1,9 @@
-import type { IncomingMessage, ServerResponse } from "http";
-import type { TokenPair, TokenType } from "./TokenType.js";
+import type { IncomingMessage } from "http";
+import type { TokenType } from "./TokenType.js";
+/**
+ * interface for token extraction
+ */
 export interface IReiJwtExtractor {
     extract(req: IncomingMessage, tokenType: TokenType): string;
-    send(res: ServerResponse, tokenPair: TokenPair): void;
 }
 //# sourceMappingURL=IReiJwtExtractor.d.ts.map
