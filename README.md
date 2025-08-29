@@ -182,7 +182,7 @@ If you want to make your own token sender, just implement `IReiJwtSender` interf
 
 - idk some patches
 
-### MAJOR v1.0.3
+### MAJOR v2.0.0
 
 - sending and extracting logic were divided, now you should manually provide "sender" and "extractor" in configuration
 - more jsdocs added
